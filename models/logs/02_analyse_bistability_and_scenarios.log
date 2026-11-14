@@ -1,0 +1,73 @@
+1. Computing continuous-time (getStability) & discrete-time (getDiscreteStability) spectra...
+2. Bracketing state-space chords, polishing Newton saddles, and running equal-SSB counterexamples...
+3. Running hysteresis scans and fine-grid transition/escape-time diagnostics...
+4. Computing predator-resolved mortality, cumulative hazard, R0 factorial, and counterfactuals...
+5. Running matched 6-gear policies, capelin benchmark, bycatch sweeps, and feedback HCR...
+
+=== Summary of Key Bistability & Policy Analysis Results ===
+Saddle & Chord Summary:
+       regime chord_ssb_lo_kt chord_ssb_hi_kt saddle_ssb_kt saddle_converged
+ E_cod = 0.00        28.42282         28.4840      42.08662            FALSE
+ E_cod = 0.15       242.48784        242.5351     321.68394            FALSE
+ saddle_residual saddle_max_Re saddle_n_pos
+    2.997317e-07   0.008134899            1
+    1.642047e-07   0.077811083            1
+
+Equal / Inverted Cod-SSB Counterexamples:
+                  case E_cod init_cod_ssb_kt init_forage_kt init_sculpin_kt
+   Ecod0_CultPrey_22kt  0.00              22       315.0758        27.26657
+   Ecod0_TrapPrey_22kt  0.00              22      4976.2856       548.27742
+   Ecod0_TrapPrey_35kt  0.00              35      4976.2856       548.27742
+ Ecod15_CultPrey_180kt  0.15             180       670.9228        80.46742
+ Ecod15_TrapPrey_180kt  0.15             180      5048.2223       554.30858
+ asymp_cod_ssb_kt                fate
+      1018.168968 High-Cod Cultivated
+        15.767970 Low-Cod Depensatory
+        15.839338 Low-Cod Depensatory
+       776.291744 High-Cod Cultivated
+         1.294574 Low-Cod Depensatory
+
+Fine transition brackets: E_cod in [0.240, 0.245] /yr | E_pel in [0.150, 0.155] /yr
+
+Matched 6-Gear Policy Comparison:
+                 id t20_cod_ssb_kt t40_cod_ssb_kt asymp_cod_ssb_kt
+         status_quo       10.40574     11.3778888       15.4547739
+   premature_reopen       10.40574      0.8793883        0.7360398
+      mesopred_only       17.52407     32.0687730     1013.1683805
+  pelagic_rebalance       85.54450    937.8152378      941.5115931
+ combined_sustain55      174.06112    980.5875630      937.8458718
+   joint_sustain_f0      248.63220    933.6229074      918.5441089
+     joint_taper_f0      248.63220   1055.3159949     1018.1689681
+  joint_sustain_f15      248.63220    658.4843756      665.2891921
+    joint_taper_f15      248.63220    433.5985158      776.2917441
+     spare_cap_base      344.70726    745.8085091      776.2917441
+     spare_cap_zero      377.19335    767.8689875      776.2917441
+ min_cap_ph1_kt cum40_tot_yld_kt t40_tot_yld_kt asymp_tot_yld_kt
+      1451.5708         26573.67      663.60772        660.66772
+      1451.5708         26687.75      671.11265        671.24614
+      1451.6685         30815.65      759.24248         43.21151
+       917.4275         38714.60      176.08839         94.16636
+       930.8353         35459.41       92.76278         98.77070
+       793.0019         34589.16      106.23076        111.93301
+       793.0019         30368.11       36.22004         39.34403
+       793.0019         40179.05      368.03211        342.44794
+       793.0019         35424.87      391.28142        191.94732
+      1327.0399         29104.57      229.46113        191.94732
+      1451.6685         25450.10      216.35160        191.94732
+
+Feedback HCR Summary:
+                           rule n_reps n_switched switch_yr_median
+         Feedback_Joint_Det_CV0      1          1             23.0
+    Feedback_Joint_Noisy_CV0.25     16         16             23.0
+      Feedback_SpareCap_Det_CV0      1          1             21.0
+ Feedback_SpareCap_Noisy_CV0.25     16         16             22.5
+ switch_yr_min switch_yr_max t40_ssb_mean_kt t40_ssb_min_kt t40_ssb_max_kt
+            23            23        777.4752       777.4752       777.4752
+            21            25        765.0755       641.1029       783.7529
+            21            21        782.2603       782.2603       782.2603
+            21            24        781.5281       778.6192       784.0255
+ asymp_recovery_pct cum40_yld_mean_kt
+                100          34814.30
+                100          34888.86
+                100          28881.82
+                100          28719.49

@@ -1,0 +1,3 @@
+# Project notes — use-extension-packages
+
+- Referee audit, 13 November 2026: source `R/00_model_functions.R` before reading this project's saved models because they use `RefugeBevertonHoltRDD`. The audit used `readParams()` for the three standalone parameter files. `models/analysis_results.rds` is a mixed list containing simulations and parameter objects loaded by the existing pipeline with `readRDS()`; cached objects can produce earlier-version warnings under installed mizer `3.4.0.9003`. Pin and reconcile package/code/cache provenance before regenerating results. See `paper/referee_report.md`; no source models or simulations were changed by the review.

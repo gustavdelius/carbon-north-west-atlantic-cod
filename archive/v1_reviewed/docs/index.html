@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Breaking the Moratorium Trap | Northwest Atlantic Cod Policy Simulator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="top-nav" aria-label="Primary navigation">
+    <div class="top-nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-badge">Policy Brief &amp; Simulator</span>
+        <span>Northwest Atlantic Cod Ecosystem Recovery</span>
+      </a>
+      <div class="nav-links">
+        <a href="#paradox">The Moratorium Paradox</a>
+        <a href="#simulator">Policy Simulator</a>
+        <a href="#mechanism">Trophic Mechanism</a>
+        <a href="#hysteresis">Tipping Points</a>
+        <a href="#roadmap">Actionable Roadmap</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Multi-Species Size-Spectrum Science for Fisheries Management</span>
+      <h1>Why Stopping Cod Fishing Was Not Enough—and How Ecosystem Rebalancing Unlocks Recovery</h1>
+      <p class="hero-lead">
+        In 1992, Canada closed one of the world’s largest groundfish fisheries after Northwest Atlantic cod
+        (<em>Gadus morhua</em>) collapsed by over 95%. Yet for more than three decades, cod failed to rebuild.
+        Size-spectrum ecosystem modelling reveals why: removing adult cod triggered an eruption of pelagic forage
+        fishes and benthic mesopredators that prey on cod eggs, larvae, and juveniles—locking the ecosystem into
+        an alternative stable state.
+      </p>
+      <div class="hero-metrics">
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-collapse-pct">&gt;95%</div>
+          <div class="hero-stat-label">Decline in cod spawning stock biomass prior to the 1992 moratorium</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-forage-surge">2.8&times;</div>
+          <div class="hero-stat-label">Post-collapse surge in pelagic forage &amp; mesopredator biomass</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-larval-mort">3.1&times;</div>
+          <div class="hero-stat-label">Increase in early-life predation mortality on larval &amp; juvenile cod</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-recovery-time">~14–18 yrs</div>
+          <div class="hero-stat-label">Time to rebuild cod under targeted forage &amp; mesopredator harvest</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Section 1: The Moratorium Paradox -->
+    <section id="paradox" class="section">
+      <div class="section-header">
+        <div class="section-kicker">1. The Management Puzzle</div>
+        <h2>Role Reversal on the Shelf: From Cultivator to Prey</h2>
+        <p>
+          Traditional single-species stock assessments assume that setting directed fishing mortality to zero
+          (<em>F</em><sub>cod</sub> = 0) guarantees stock rebuilding. In size-structured marine food webs,
+          however, trophic roles reverse across life stages.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="section-kicker">Pre-1975: Cultivated Regime</div>
+          <h3 style="margin-top:0.2rem;">Adult Cod Protect Their Young</h3>
+          <p style="color:var(--text-secondary);font-size:0.93rem;">
+            Large adult cod (2–18 kg) consume vast quantities of capelin, herring, mackerel, and sculpin. By keeping
+            these small-bodied species in check, adult cod inadvertently “cultivate” a safe, food-rich nursery for
+            their own 1 mg–20 g eggs, larvae, and newly settled juveniles.
+          </p>
+        </div>
+        <div class="card">
+          <div class="section-kicker" style="color:var(--accent-danger);">1970–1992: Trawl Truncation</div>
+          <h3 style="margin-top:0.2rem;">Predator Release &amp; Eruption</h3>
+          <p style="color:var(--text-secondary);font-size:0.93rem;">
+            Intense groundfish trawling removed large cod faster than recruits could replace them. Freed from top-down
+            predation, planktivorous pelagics (herring, mackerel, capelin) and benthic sculpins surged across the
+            Northwest Atlantic shelf.
+          </p>
+        </div>
+        <div class="card">
+          <div class="section-kicker" style="color:var(--accent-amber);">1992–Present: The Moratorium Trap</div>
+          <h3 style="margin-top:0.2rem;">Predator Pit &amp; Bottleneck</h3>
+          <p style="color:var(--text-secondary);font-size:0.93rem;">
+            Abundant herring and mackerel consume pelagic cod eggs and larvae while competing for zooplankton; abundant
+            sculpins ambush settled 0-group cod. Juvenile survival drops below replacement, trapping cod at 3–5% of
+            historical biomass even at <em>F</em><sub>cod</sub> = 0.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Interactive Policy Simulator -->
+    <section id="simulator" class="section">
+      <div class="section-header">
+        <div class="section-kicker">2. Interactive Decision Support</div>
+        <h2>Policy Simulator: Rebalancing Harvest Across the Food Web</h2>
+        <p>
+          Explore projections from the calibrated 6-species <code>mizer</code> size-spectrum model starting from the
+          post-moratorium collapsed regime (Year 0 = Policy Start). Adjust fishing effort across fleets or choose a
+          policy preset to test whether cod recovers and how total multispecies catches respond.
+        </p>
+      </div>
+
+      <div class="simulator-layout">
+        <aside class="controls-panel" aria-label="Simulation controls">
+          <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:0.5rem;">
+            Policy Presets
+          </div>
+          <div class="preset-group" id="preset-buttons">
+            <button type="button" class="preset-btn active" data-preset="status_quo">
+              <span>1. Status Quo Moratorium</span>
+              <span class="preset-tag">Trapped</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="pelagic_rebalance">
+              <span>2. Pelagic Forage Harvest</span>
+              <span class="preset-tag">Recovers</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="ecosystem_pulse">
+              <span>3. Adaptive Pulse + Rebuild</span>
+              <span class="preset-tag">Optimal</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="premature_reopen">
+              <span>4. Premature Cod Reopening</span>
+              <span class="preset-tag">Collapses</span>
+            </button>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="slider-fp">Pelagic Forage Fishing (<em>F</em><sub>pelagic</sub>)</label>
+              <span class="control-val" id="val-fp">0.15 /yr</span>
+            </div>
+            <p class="control-help">Purse-seine / midwater harvest on herring, mackerel &amp; capelin (baseline: 0.15 /yr).</p>
+            <input type="range" id="slider-fp" min="0.00" max="0.80" step="0.05" value="0.15" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="slider-fm">Mesopredator Harvest (<em>F</em><sub>mesopred</sub>)</label>
+              <span class="control-val" id="val-fm">0.05 /yr</span>
+            </div>
+            <p class="control-help">Targeted trap / bycatch reduction harvest on benthic sculpins (baseline: 0.05 /yr).</p>
+            <input type="range" id="slider-fm" min="0.00" max="0.60" step="0.05" value="0.05" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="slider-fcod">Post-Rebuild Cod <em>F</em> (after Year 20)</label>
+              <span class="control-val" id="val-fcod">0.00 /yr</span>
+            </div>
+            <p class="control-help">Directed cod fishing mortality allowed once 20 years of rebuilding have elapsed.</p>
+            <input type="range" id="slider-fcod" min="0.00" max="0.50" step="0.05" value="0.00" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="slider-pulse">Adaptive Taper after Year 20</label>
+              <span class="control-val" id="val-pulse">Off</span>
+            </div>
+            <p class="control-help">Relax forage &amp; mesopredator fishing back to baseline after Year 20 to test permanence.</p>
+            <input type="checkbox" id="check-taper" style="transform:scale(1.2);margin-right:0.4rem;cursor:pointer;" />
+            <label for="check-taper" style="font-size:0.84rem;color:var(--text-secondary);cursor:pointer;">
+              Return <em>F</em><sub>pelagic</sub> &amp; <em>F</em><sub>mesopred</sub> to baseline at Year 20
+            </label>
+          </div>
+        </aside>
+
+        <div>
+          <div id="regime-status-banner" class="regime-banner trapped">
+            <span id="regime-status-text">Regime Outcome: Trapped in Forage-Dominated Moratorium State</span>
+            <span id="regime-threshold-note" style="font-size:0.84rem;font-weight:500;">Early-life predation keeps cod below cultivation threshold</span>
+          </div>
+
+          <div class="kpi-row">
+            <div class="kpi-box">
+              <div class="kpi-title">Year-40 Cod SSB</div>
+              <div class="kpi-num" id="kpi-cod-ssb">— kt</div>
+              <div class="kpi-sub" id="kpi-cod-pct">vs. pre-collapse SSB</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-title">Forage Guild Biomass</div>
+              <div class="kpi-num" id="kpi-forage-bio">— kt</div>
+              <div class="kpi-sub" id="kpi-forage-note">Capelin + Herring + Mackerel</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-title">Total Fishery Yield</div>
+              <div class="kpi-num" id="kpi-total-yield">— kt/yr</div>
+              <div class="kpi-sub" id="kpi-cod-yield">Cod yield: — kt/yr</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-title">Larval Cod Mortality</div>
+              <div class="kpi-num" id="kpi-larval-m">— /yr</div>
+              <div class="kpi-sub">Predation at 0.05–5 g</div>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-title-bar">
+              <div class="chart-title">Spawning Stock &amp; Guild Biomass Trajectories (Historical Collapse + 40-Year Policy Projection)</div>
+              <div class="legend-inline">
+                <span class="legend-item"><span class="legend-swatch" style="background:#1d5fa7;"></span>Atlantic Cod SSB</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#d97706;"></span>Pelagic Forage (Herring + Mackerel + Capelin)</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#7c3aed;"></span>Sculpin Mesopredator</span>
+              </div>
+            </div>
+            <canvas id="canvas-timeseries" width="780" height="310"></canvas>
+          </div>
+
+          <div class="chart-wrap" style="margin-bottom:0;">
+            <div class="chart-title-bar">
+              <div class="chart-title">Annual Multispecies Fishery Landings by Guild (kt / year)</div>
+              <div class="legend-inline">
+                <span class="legend-item"><span class="legend-swatch" style="background:#1d5fa7;"></span>Cod Catch</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#d97706;"></span>Pelagic Catch</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#15805c;"></span>Flatfish &amp; Mesopredator Catch</span>
+              </div>
+            </div>
+            <canvas id="canvas-yield" width="780" height="205"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Trophic & Size-Spectrum Explorer -->
+    <section id="mechanism" class="section">
+      <div class="section-header">
+        <div class="section-kicker">3. Inside the Size-Spectrum Model</div>
+        <h2>Diagnosing the Bottleneck Across Body Size (1 mg to 20 kg)</h2>
+        <p>
+          Unlike biomass-pool food-web models, <code>mizer</code> resolves individual body weight across seven orders of
+          magnitude. Toggle between ecosystem regimes to see how forage fish release reshapes community biomass spectra
+          and inflates predation mortality right across the larval and juvenile cod nursery window.
+        </p>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;">
+          <div class="pill-tabs" role="tablist" aria-label="Ecosystem state comparison">
+            <button type="button" class="pill-tab active" data-spectrum-view="spectra">Biomass Size Spectra</button>
+            <button type="button" class="pill-tab" data-spectrum-view="mortality">Cod Predation Mortality vs. Size</button>
+            <button type="button" class="pill-tab" data-spectrum-view="feeding">Juvenile Growth &amp; Feeding Level</button>
+          </div>
+          <div class="pill-tabs" role="tablist" aria-label="Regime overlay">
+            <button type="button" class="pill-tab active" data-regime-compare="moratorium">1992 Moratorium Trap</button>
+            <button type="button" class="pill-tab" data-regime-compare="cultivated">Pre-Collapse / Recovered Regime</button>
+            <button type="button" class="pill-tab" data-regime-compare="both">Overlay Both Regimes</button>
+          </div>
+        </div>
+
+        <canvas id="canvas-spectra" width="1100" height="340"></canvas>
+        <p id="spectra-caption" style="margin:0.75rem 0 0;font-size:0.88rem;color:var(--text-secondary);">
+          Loading size-resolved diagnostics from <code>mizer</code> steady states…
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Hysteresis & Tipping Points -->
+    <section id="hysteresis" class="section">
+      <div class="section-header">
+        <div class="section-kicker">4. Alternative Stable States &amp; Hysteresis</div>
+        <h2>Why Zero Fishing Cannot Cross an Ecological Fold Bifurcation</h2>
+        <p>
+          Equilibrium continuation (<code>scanModel</code> &amp; Newton–Raphson stability analysis) proves that both
+          the high-cod cultivated regime and the low-cod forage-dominated regime are locally stable fixed points
+          (leading eigenvalue Re(&lambda;) &lt; 0) at identical biological parameters and <em>F</em><sub>cod</sub> = 0.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="chart-title" style="margin-bottom:0.4rem;">A. Collapse &amp; Hysteresis Loop vs. Directed Cod Fishing (<em>F</em><sub>cod</sub>)</div>
+          <p style="font-size:0.84rem;color:var(--text-secondary);margin-top:0;">
+            Once historical fishing exceeds the collapse tipping point, the stock drops to the lower stable branch.
+            Reducing <em>F</em><sub>cod</sub> back to zero moves horizontally along the collapsed branch without jumping up.
+          </p>
+          <canvas id="canvas-hysteresis-cod" width="520" height="290"></canvas>
+        </div>
+
+        <div class="card">
+          <div class="chart-title" style="margin-bottom:0.4rem;">B. Escape Bifurcation vs. Pelagic Forage Harvest (<em>F</em><sub>pelagic</sub> at <em>F</em><sub>cod</sub> = 0)</div>
+          <p style="font-size:0.84rem;color:var(--text-secondary);margin-top:0;">
+            Starting on the collapsed moratorium branch, increasing pelagic harvest thins larval predators until the
+            lower branch terminates at the recovery threshold—triggering self-sustaining cod rebuilding.
+          </p>
+          <canvas id="canvas-hysteresis-forage" width="520" height="290"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Policy Comparison Table & Roadmap -->
+    <section id="roadmap" class="section" style="margin-bottom:1rem;">
+      <div class="section-header">
+        <div class="section-kicker">5. Implementation Guidance for Fisheries Policy Makers</div>
+        <h2>Phased Ecosystem Rebalancing Roadmap &amp; Ecological Guardrails</h2>
+        <p>
+          Crucially, elevated forage fishing does <strong>not</strong> need to be permanent. Because the high-cod regime
+          is self-stabilising once adult cod biomass re-establishes top-down cultivation, forage harvest is required
+          only as a temporary transitional bridge.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom:1.5rem;overflow-x:auto;">
+        <table class="policy-table">
+          <thead>
+            <tr>
+              <th>Management Strategy</th>
+              <th>Directed <em>F</em><sub>cod</sub></th>
+              <th>Pelagic <em>F</em><sub>pelagic</sub></th>
+              <th>Mesopredator <em>F</em></th>
+              <th>Year-40 Cod SSB</th>
+              <th>Total Multispecies Yield</th>
+              <th>Regime Outcome</th>
+            </tr>
+          </thead>
+          <tbody id="policy-comparison-tbody">
+            <!-- Populated dynamically from exact mizer outputs -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-3" style="margin-bottom:1.5rem;">
+        <div class="card roadmap-step">
+          <div class="step-badge">Phase I &middot; Years 1–12</div>
+          <h3>Targeted Trophic Release</h3>
+          <p>
+            Maintain strict cod bycatch caps (<em>F</em><sub>cod</sub> &le; 0.02 /yr) while expanding selective pelagic
+            harvest on abundant herring and mackerel stocks and incentivising sculpin trap/pot removals in key juvenile
+            cod nursery bays.
+          </p>
+        </div>
+        <div class="card roadmap-step phase-2">
+          <div class="step-badge">Phase II &middot; Years 12–20</div>
+          <h3>Cultivation Hand-Off</h3>
+          <p>
+            Monitor 0-group cod survival, juvenile feeding levels, and spawning biomass crossing the Allee cultivation
+            threshold. As rebuilding adult cod resume natural predation on forage fish, taper pelagic harvest quotas
+            downward to prevent combined over-depletion.
+          </p>
+        </div>
+        <div class="card roadmap-step phase-3">
+          <div class="step-badge">Phase III &middot; Year 20+</div>
+          <h3>Balanced Multispecies Fishery</h3>
+          <p>
+            Return pelagic harvest to precautionary baseline rates and reopen a size-selective, moderate cod fishery
+            (<em>F</em><sub>cod</sub> &approx; 0.15–0.18 /yr, <em>L</em><sub>50</sub> &ge; 52 cm) safely below the
+            hysteresis collapse threshold.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Ecological Safeguards &amp; Precautionary Guardrails:</strong>
+        Forage fishes such as capelin and herring also support seabirds, baleen whales, and pinnipeds. Our size-spectrum
+        results show that <em>indiscriminate depletion</em> of capelin is neither necessary nor desirable: selective
+        harvest focused on abundant ichthyoplankton predators (adult herring and mackerel during spawning overlap)
+        paired with adaptive step-down triggers (maintaining forage biomass above 40% of unexploited capacity) achieves
+        cod recovery while preserving marine predator forage bases and avoiding cod bycatch via midwater/purse-seine gears.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <strong>Northwest Atlantic Cod Size-Spectrum Policy Explorer</strong><br />
+        Powered by dynamic multi-species size-spectrum simulations in R (<code>mizer</code>). All trajectories and
+        bifurcation curves reflect exact numerical solutions of the McKendrick–von Foerster ecosystem equations.
+      </div>
+      <div>
+        Companion study: <em>Breaking the Moratorium Trap: Size-Structured Cultivation–Depensation and Ecosystem-Based
+        Recovery of Northwest Atlantic Cod</em>.
+      </div>
+    </div>
+  </footer>
+
+  <script src="model_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

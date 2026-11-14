@@ -1,0 +1,126 @@
+\begin{thebibliography}{}
+
+\bibitem[Andersen, 2019]{andersen2019fish}
+Andersen, K.~H. (2019).
+\newblock {\em Fish Ecology, Evolution, and Exploitation: A New Theoretical
+  Synthesis}.
+\newblock Princeton University Press, Princeton, NJ.
+
+\bibitem[Andersen and Pedersen, 2010]{andersen2010damped}
+Andersen, K.~H. and Pedersen, M. (2010).
+\newblock Damped trophic cascades driven by fishing in model marine ecosystems.
+\newblock {\em Proceedings of the Royal Society B: Biological Sciences},
+  277(1682):795--802.
+
+\bibitem[Bundy and Fanning, 2005]{bundy2005can}
+Bundy, A. and Fanning, L.~P. (2005).
+\newblock Can {Atlantic} cod (\emph{Gadus morhua}) recover? {Exploring} trophic
+  explanations for the non-recovery of the cod stock on the eastern {Scotian
+  Shelf}, {Canada}.
+\newblock {\em Canadian Journal of Fisheries and Aquatic Sciences},
+  62(7):1474--1489.
+
+\bibitem[Delius et~al., 2022]{delius2022mizer}
+Delius, G.~W., Law, R., and Plank, M.~J. (2022).
+\newblock Steady-state and stability structure of multispecies size-spectrum
+  models.
+\newblock {\em Bulletin of Mathematical Biology}, 84:1--28.
+
+\bibitem[Frank et~al., 2005]{frank2005trophic}
+Frank, K.~T., Petrie, B., Choi, J.~S., and Leggett, W.~C. (2005).
+\newblock Trophic cascades in a formerly cod-dominated ecosystem.
+\newblock {\em Science}, 308(5728):1621--1623.
+
+\bibitem[Frank et~al., 2011]{frank2011transient}
+Frank, K.~T., Petrie, B., Fisher, J. A.~D., and Leggett, W.~C. (2011).
+\newblock Transient dynamics of an altered large marine ecosystem.
+\newblock {\em Nature}, 477(7362):86--89.
+
+\bibitem[Garcia et~al., 2012]{garcia2012reconsidering}
+Garcia, S.~M., Kolding, J., Rice, J., Rochet, M.-J., Zhou, S., Arimoto, T.,
+  Beyer, J.~E., Borges, L., Bundy, A., Dunn, D., et~al. (2012).
+\newblock Reconsidering the consequences of selective fisheries.
+\newblock {\em Science}, 335(6072):1045--1047.
+
+\bibitem[G{\aa}rdmark et~al., 2015]{gardmark2015regime}
+G{\aa}rdmark, A., Casini, M., Huss, M., van Leeuwen, A., Hjelm, J., Persson,
+  L., and de~Roos, A.~M. (2015).
+\newblock Regime shifts in marine ecosystems: how overfishing can provoke
+  sudden ecosystem transformations.
+\newblock {\em Philosophical Transactions of the Royal Society B: Biological
+  Sciences}, 370(1659):20130262.
+
+\bibitem[Hutchings and Myers, 1994]{hutchings1994what}
+Hutchings, J.~A. and Myers, R.~A. (1994).
+\newblock What can be learned from the collapse of a renewable resource?
+  {Atlantic} cod, \emph{Gadus morhua}, of {Newfoundland} and {Labrador}.
+\newblock {\em Canadian Journal of Fisheries and Aquatic Sciences},
+  51(9):2126--2146.
+
+\bibitem[Lilly et~al., 2013]{lilly2013review}
+Lilly, G.~R., Nakken, O., and Brattey, J. (2013).
+\newblock A review of the biology and fisheries of {Atlantic} cod (\emph{Gadus
+  morhua}) in {NAFO} divisions {2J3KL}.
+\newblock {\em ICES Journal of Marine Science}, 70:1--18.
+
+\bibitem[Myers et~al., 1997]{myers1997why}
+Myers, R.~A., Hutchings, J.~A., and Barrowman, N.~J. (1997).
+\newblock Why do fish stocks collapse? {The} example of cod in {Atlantic
+  Canada}.
+\newblock {\em Ecological Applications}, 7(1):91--106.
+
+\bibitem[Pikitch et~al., 2012]{pikitch2012little}
+Pikitch, E.~K., Rountos, K.~J., Essington, T.~E., Santora, C., Pauly, D.,
+  Watson, R., Sumaila, U.~R., Boersma, P.~D., Boyd, I.~L., Conover, D.~O.,
+  et~al. (2012).
+\newblock Little fish, big impact: managing a crucial link in ocean food webs.
+\newblock {\em Lenfest Ocean Program}, pages 1--108.
+
+\bibitem[Rose and O'Driscoll, 2002]{rose2002capelin}
+Rose, G.~A. and O'Driscoll, R.~L. (2002).
+\newblock Capelin are good for cod: can the northern stock rebuild without
+  them?
+\newblock {\em ICES Journal of Marine Science}, 59(5):1018--1026.
+
+\bibitem[Scott et~al., 2014]{scott2014mizer}
+Scott, F., Blanchard, J.~L., and Andersen, K.~H. (2014).
+\newblock mizer: an {R} package for multispecies, trait-based and community
+  size spectrum ecological modelling.
+\newblock {\em Methods in Ecology and Evolution}, 5(10):1121--1125.
+
+\bibitem[Shelton et~al., 2006]{shelton2006fishing}
+Shelton, P.~A., Sinclair, A.~F., Chouinard, G.~A., Mohn, R., and Duplisea,
+  D.~E. (2006).
+\newblock Fishing under low productivity conditions is further delaying
+  recovery of {Northwest Atlantic} cod (\emph{Gadus morhua}).
+\newblock {\em Canadian Journal of Fisheries and Aquatic Sciences},
+  63(2):235--238.
+
+\bibitem[Swain and Chouinard, 2008]{swain2008predicted}
+Swain, D.~P. and Chouinard, G.~A. (2008).
+\newblock Predicted extirpation of the dominant demersal fish in a large marine
+  ecosystem: {Atlantic} cod (\emph{Gadus morhua}) in the southern {Gulf of St.
+  Lawrence}.
+\newblock {\em Canadian Journal of Fisheries and Aquatic Sciences},
+  65(11):2315--2319.
+
+\bibitem[Swain and Sinclair, 2000]{swain2000pelagic}
+Swain, D.~P. and Sinclair, A.~F. (2000).
+\newblock Pelagic fishes and cod recruitment: historical evidence of recovery
+  bottlenecks in the southern {Gulf of St. Lawrence}.
+\newblock {\em Canadian Journal of Fisheries and Aquatic Sciences},
+  57(7):1321--1325.
+
+\bibitem[van Leeuwen et~al., 2008]{vanleeuwen2008how}
+van Leeuwen, A., De~Roos, A.~M., and Persson, L. (2008).
+\newblock How cod shapes its world.
+\newblock {\em Journal of Theoretical Biology}, 254(2):387--399.
+
+\bibitem[Walters and Kitchell, 2001]{walters2001cultivation}
+Walters, C. and Kitchell, J.~F. (2001).
+\newblock Cultivation/depensation effects on juvenile survival and recruitment:
+  implications for the theory of fishing.
+\newblock {\em Canadian Journal of Fisheries and Aquatic Sciences},
+  58(1):39--50.
+
+\end{thebibliography}

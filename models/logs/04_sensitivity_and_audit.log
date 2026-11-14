@@ -1,0 +1,89 @@
+1. Running time-step & integrator convergence table (euler vs tr_bdf2)...
+2. Running spatial flux scheme (fixed-parameter vs recalibrated) & size-grid resolution checks...
+3. Running exogenous recruitment subsidy sweep, spawner-linked refuge, & export size checks...
+4. Running fixed-parameter & recalibrated 2D (r_prey, s_theta) and alternative structural sweeps...
+5. Generating Figure 7 (Numerical Convergence & Structural Sensitivity)...
+6. Writing automated methods_audit.json & reproducibility_manifest.json...
+=== R/04 Sensitivity & Audit Summary ===
+
+1. Time-step convergence (Flagship tau=40 Cod SSB kt):
+  method    dt t61_cod_ssb_kt flag_tau40_ssb_kt flag_asymp_recov
+   euler 0.200      11.569923          528.8355             TRUE
+   euler 0.100      10.243102          475.2868             TRUE
+   euler 0.050       9.676152          452.9962             TRUE
+   euler 0.025       9.414932          443.0433             TRUE
+ tr_bdf2 0.200       9.180481          431.8440             TRUE
+ tr_bdf2 0.100       9.172461          433.0422             TRUE
+ tr_bdf2 0.050       9.169467          433.5985             TRUE
+ tr_bdf2 0.025       9.168384          433.8004             TRUE
+ near_tau40_ssb_kt near_asymp_recov
+          69.08472            FALSE
+          59.77344            FALSE
+          56.10505            FALSE
+          54.47542            FALSE
+          52.97953            FALSE
+          52.96716            FALSE
+          52.96796            FALSE
+          52.96867            FALSE
+
+2. Spatial flux & grid resolution summary:
+                           mode recalibrated no_w n_active high_cod_ssb_kt
+            fixed_params_upwind        FALSE  100      727       1018.1690
+     fixed_params_van_leer_flux        FALSE  100       NA        938.5749
+ fixed_params_second_order_full        FALSE  100       NA       1187.6998
+           recal_upwind_no_w_80         TRUE   80      581       1003.4116
+          recal_upwind_no_w_100         TRUE  100      727       1018.1688
+          recal_upwind_no_w_150         TRUE  150     1089       1023.9001
+          recal_upwind_no_w_200         TRUE  200     1451       1017.2998
+            recal_van_leer_flux         TRUE  100       NA       1002.9047
+             recal_second_order         TRUE  100      721       3046.6846
+ low_cod_ssb_kt bistable max_Re_high   max_Re_low
+      15.758086     TRUE  -0.1809302 -0.008408717
+     938.576979    FALSE          NA           NA
+    1187.700922    FALSE          NA           NA
+    1003.411513    FALSE  -0.1863919 -0.186391815
+      15.756229     TRUE  -0.1809303 -0.008409916
+      10.783596     TRUE  -0.1770150 -0.016248291
+      10.379326     TRUE  -0.1751561 -0.017150171
+       5.496797     TRUE          NA           NA
+    3214.734485    FALSE  -0.2000000 -0.200000000
+
+3. Exogenous recruitment subsidy sweep:
+ sub_pct_cal high_cod_ssb_kt low_cod_ssb_kt low_state_R0 bistable
+         0.0        1016.213   1.501650e-05    0.8215984     TRUE
+         0.1        1016.392   1.022789e+00    0.8254567     TRUE
+         0.5        1017.105   5.635415e+00    0.8430434     TRUE
+         1.1        1018.169   1.575809e+01    0.8827194     TRUE
+         1.5        1018.876   1.018876e+03    1.1983156    FALSE
+         2.0        1019.756   1.019756e+03    1.1884126    FALSE
+         2.5        1020.650   1.020650e+03    1.1786092    FALSE
+         3.5        1022.642   1.022642e+03    1.1593833    FALSE
+         5.0        1025.499   1.025499e+03    1.1311730    FALSE
+ pulse_asymp_ssb_kt
+       3.723717e-17
+       1.166784e-01
+       5.853959e-01
+       7.762917e+02
+       7.774561e+02
+       7.789027e+02
+       7.803399e+02
+       7.831866e+02
+       7.873907e+02
+
+4. Alternative structural checks:
+                                      variant high_cod_ssb_kt low_cod_ssb_kt
+ Symmetric fish-larval overlap (recalibrated)       1175.9453    1175.945345
+       Narrower feeding kernels (0.85x sigma)        931.7725       8.742605
+          Wider feeding kernels (1.15x sigma)       1121.7714    1121.771294
+       Higher cod BH buffering (r_cod = 0.55)       1036.7182    1036.718233
+        Slow resource regeneration (r_pp = 5)       1046.5743       5.632125
+       Fast resource regeneration (r_pp = 20)       1001.6501    1001.651213
+ t61_cod_ssb_kt bistable
+    1175.005134    FALSE
+       7.284994     TRUE
+      12.424845    FALSE
+      55.017406    FALSE
+       5.439985     TRUE
+      15.183472    FALSE
+
+Successfully wrote models/sensitivity_results.rds, fig7, methods_audit.json, and reproducibility_manifest.json.

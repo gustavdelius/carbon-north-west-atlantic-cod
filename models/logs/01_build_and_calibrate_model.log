@@ -1,0 +1,35 @@
+=== Theoretical Six-Species Model Calibration & Equilibrium Summary ===
+  species target_cutoff_kt cal_pre_sub_kt rel_err_pre_sub_pct cal_post_sub_kt
+  Capelin              520            520       -1.311771e-13        507.2565
+  Herring              380            380       -1.944643e-13        366.9798
+ Mackerel              190            190        2.991759e-14        183.9704
+  Sculpin              140            140        4.060244e-14        135.9530
+   Plaice              260            260       -6.558856e-14        257.1300
+      Cod              680            680       -1.337492e-13        687.1939
+   erepro_cal
+ 1.699533e-03
+ 5.716480e-04
+ 2.271020e-04
+ 4.814928e-04
+ 7.360781e-05
+ 2.123834e-06
+
+=== Refined Equilibrium Convergence Summary ===
+                 state converged        termination   attractor years_run
+ High_Branch_Ecod_0.15      TRUE residual_tolerance fixed_point      57.0
+ High_Branch_Ecod_0.00      TRUE residual_tolerance fixed_point      99.0
+  Low_Branch_Ecod_0.00      TRUE residual_tolerance fixed_point    1507.5
+  Low_Branch_Ecod_0.15      TRUE residual_tolerance fixed_point     145.5
+ residual_conv residual_biomass residual_pc_main residual_pc_all  cod_ssb_kt
+  9.761291e-09     5.927200e-09     1.302418e-06    1.302418e-06  776.291728
+  5.995506e-09     1.491111e-09     2.000000e-01    2.000000e-01 1018.168963
+  9.897688e-09     2.279937e-09     8.591703e-07    8.591703e-07   15.758085
+  9.022902e-09     1.809115e-09     3.300718e-07    3.300718e-07    1.294574
+ cod_cutoff_kt cod_total_kt
+    824.820305   826.015980
+   1062.970352  1063.977920
+     15.944287    15.955305
+      1.330243     1.332412
+
+Cod exogenous recruitment input: 2.290e+06 /yr (1.10% of E_cod=0.22 cal RDD; 13.47% of low-cod E_cod=0 RDD)
+Canonical collapse+closure (tr_bdf2, dt=0.05): t=27 Cod SSB = 4.56 kt | t=61 Cod SSB = 9.17 kt

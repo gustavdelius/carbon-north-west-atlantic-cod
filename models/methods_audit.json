@@ -1,0 +1,358 @@
+{
+  "generated_at_utc": "2026-11-14T05:56:13Z",
+  "mizer_version": "3.4.0.9003",
+  "mizer_remote_sha": "e2500836a1df12fc683d03d7a3b2836e5959bfe8",
+  "defaults_edition": 1,
+  "canonical_solver": {
+    "method": "tr_bdf2",
+    "dt": 0.05
+  },
+  "allometric_exponents": {
+    "n_intake": 0.66666667,
+    "p_metabolism": 0.7,
+    "q_search_volume": 0.74666667,
+    "q_formula": "n + lambda - 2 = 2/3 + 2.08 - 2 = 0.7466667",
+    "resource_lambda": 2.08,
+    "resource_kappa": 280000000000,
+    "resource_n": 0.66666667
+  },
+  "resource_dynamics_audit": {
+    "dynamics_function": "resource_semichemostat",
+    "r_pp_coefficient": 10,
+    "rate_formula": "r_R(w) = r_pp * w^(n_R - 1) = 10 * w^(-1/3) yr^(-1)",
+    "w_pp_cutoff_g": 10,
+    "max_abs_formula_error": 0
+  },
+  "external_mortality_audit": {
+    "formula": "mu_ext,i(w) = z0,i (constant across w; z_ext = 0 under defaults_edition 1)",
+    "z0_by_species": {
+      "Capelin": 0.38,
+      "Herring": 0.35,
+      "Mackerel": 0.34,
+      "Sculpin": 0.54,
+      "Plaice": 0.28,
+      "Cod": 0.2
+    },
+    "max_abs_const_error": 0
+  },
+  "size_grids_and_jacobian_audit": {
+    "no_w_consumer": 100,
+    "min_w_consumer_g": 0.001,
+    "max_w_consumer_g": 22500,
+    "cod_w_inf_g": 15000,
+    "cod_w_max_g": 22500,
+    "w_max_over_w_inf": 1.5,
+    "n_w_full_resource": 222,
+    "n_resource_cc_positive": 176,
+    "n_resource_above_10g": 46,
+    "active_fish_bins_by_sp": {
+      "Capelin": 67,
+      "Herring": 79,
+      "Mackerel": 84,
+      "Sculpin": 85,
+      "Plaice": 90,
+      "Cod": 100
+    },
+    "n_fish_active_total": 505,
+    "jacobian_n_active": 727,
+    "jacobian_explanation": "getStability() perturbs n_fish_active = 505 consumer bins (w_min_idx to pmin(sum(w <= w_max) + 1, no_w) for each present species) plus all n_w_full = 222 resource bins, giving n_active = 727 eigenvalues."
+  },
+  "fishing_mortality_audit": {
+    "formula": "F_{g,i}(w, t) = S_{g,i}(w) * Q_{g,i} * E_g(t)",
+    "gear_params": [
+      {
+        "gear": "Pelagic",
+        "species": "Capelin",
+        "sel_func": "sigmoid_length",
+        "l50": 11,
+        "l25": 9,
+        "catchability": 0.75,
+        "_row": "Capelin, Pelagic"
+      },
+      {
+        "gear": "Pelagic",
+        "species": "Herring",
+        "sel_func": "sigmoid_length",
+        "l50": 20,
+        "l25": 16,
+        "catchability": 1,
+        "_row": "Herring, Pelagic"
+      },
+      {
+        "gear": "Pelagic",
+        "species": "Mackerel",
+        "sel_func": "sigmoid_length",
+        "l50": 25,
+        "l25": 20,
+        "catchability": 1,
+        "_row": "Mackerel, Pelagic"
+      },
+      {
+        "gear": "Mesopredator",
+        "species": "Sculpin",
+        "sel_func": "sigmoid_length",
+        "l50": 20,
+        "l25": 16,
+        "catchability": 1,
+        "_row": "Sculpin, Mesopredator"
+      },
+      {
+        "gear": "Flatfish",
+        "species": "Plaice",
+        "sel_func": "sigmoid_length",
+        "l50": 28,
+        "l25": 23,
+        "catchability": 1,
+        "_row": "Plaice, Flatfish"
+      },
+      {
+        "gear": "Cod_Trawl",
+        "species": "Cod",
+        "sel_func": "sigmoid_length",
+        "l50": 52,
+        "l25": 45,
+        "catchability": 1,
+        "_row": "Cod, Cod_Trawl"
+      }
+    ]
+  },
+  "feeding_kernel_95pct_intervals": [
+    {
+      "species": "Capelin",
+      "beta": 2000,
+      "sigma": 1.8,
+      "opt_pred_prey_rat": 2000,
+      "q025_prey_to_pred": 0.00001468,
+      "q975_prey_to_pred": 0.01702789,
+      "_row": "Capelin"
+    },
+    {
+      "species": "Herring",
+      "beta": 2500,
+      "sigma": 2.2,
+      "opt_pred_prey_rat": 2500,
+      "q025_prey_to_pred": 5.36268374e-06,
+      "q975_prey_to_pred": 0.02983581,
+      "_row": "Herring"
+    },
+    {
+      "species": "Mackerel",
+      "beta": 350,
+      "sigma": 1.9,
+      "opt_pred_prey_rat": 350,
+      "q025_prey_to_pred": 0.00006896,
+      "q975_prey_to_pred": 0.11837081,
+      "_row": "Mackerel"
+    },
+    {
+      "species": "Sculpin",
+      "beta": 65,
+      "sigma": 1.6,
+      "opt_pred_prey_rat": 65,
+      "q025_prey_to_pred": 0.00066856,
+      "q975_prey_to_pred": 0.35402517,
+      "_row": "Sculpin"
+    },
+    {
+      "species": "Plaice",
+      "beta": 220,
+      "sigma": 1.7,
+      "opt_pred_prey_rat": 220,
+      "q025_prey_to_pred": 0.00016237,
+      "q975_prey_to_pred": 0.1272467,
+      "_row": "Plaice"
+    },
+    {
+      "species": "Cod",
+      "beta": 60,
+      "sigma": 1.6,
+      "opt_pred_prey_rat": 60,
+      "q025_prey_to_pred": 0.00072427,
+      "q975_prey_to_pred": 0.38352727,
+      "_row": "Cod"
+    }
+  ],
+  "recruitment_audit": {
+    "rdd_function": "RefugeBevertonHoltRDD",
+    "reproduction_level": {
+      "Capelin": 0.88,
+      "Herring": 0.88,
+      "Mackerel": 0.88,
+      "Sculpin": 0.88,
+      "Plaice": 0.88,
+      "Cod": 0.28308
+    },
+    "cod_r_refuge_per_yr": 2289775.73286265,
+    "cod_sub_pct_cal": 1.1,
+    "cod_sub_pct_high_f0": 1.6408777,
+    "cod_sub_pct_low_f0": 13.4739884
+  },
+  "species_calibrated_table": [
+    {
+      "species": "Capelin",
+      "target_cutoff_kt": 520,
+      "cutoff_g": 2,
+      "uncal_cutoff_kt": 0.20803698,
+      "cal_pre_sub_kt": 520,
+      "rel_err_pre_sub_pct": -1.3117712e-13,
+      "cal_post_sub_kt": 507.2565496,
+      "rel_err_post_sub_pct": -2.45066354,
+      "h_cal": 24.198596,
+      "gamma_cal": 1.4194429e-11,
+      "ks_cal": 2.72145702,
+      "erepro_cal": 0.00169953,
+      "R_max_cal": 80454490981.501938,
+      "r_refuge_cal": 0,
+      "repro_level_cal": 0.88,
+      "_row": "Capelin"
+    },
+    {
+      "species": "Herring",
+      "target_cutoff_kt": 380,
+      "cutoff_g": 10,
+      "uncal_cutoff_kt": 0.18323991,
+      "cal_pre_sub_kt": 380,
+      "rel_err_pre_sub_pct": -1.94464328e-13,
+      "cal_post_sub_kt": 366.97979658,
+      "rel_err_post_sub_pct": -3.42636932,
+      "h_cal": 37.34831834,
+      "gamma_cal": 1.7519299e-11,
+      "ks_cal": 3.92139155,
+      "erepro_cal": 0.00057165,
+      "R_max_cal": 13695900725.598433,
+      "r_refuge_cal": 0,
+      "repro_level_cal": 0.88,
+      "_row": "Herring"
+    },
+    {
+      "species": "Mackerel",
+      "target_cutoff_kt": 190,
+      "cutoff_g": 15,
+      "uncal_cutoff_kt": 0.18138476,
+      "cal_pre_sub_kt": 190,
+      "rel_err_pre_sub_pct": 2.99175889e-14,
+      "cal_post_sub_kt": 183.9704449,
+      "rel_err_post_sub_pct": -3.17345005,
+      "h_cal": 47.14689944,
+      "gamma_cal": 3.01055764e-11,
+      "ks_cal": 4.82997024,
+      "erepro_cal": 0.0002271,
+      "R_max_cal": 2653216123.3089843,
+      "r_refuge_cal": 0,
+      "repro_level_cal": 0.88,
+      "_row": "Mackerel"
+    },
+    {
+      "species": "Sculpin",
+      "target_cutoff_kt": 140,
+      "cutoff_g": 15,
+      "uncal_cutoff_kt": 0.16346352,
+      "cal_pre_sub_kt": 140,
+      "rel_err_pre_sub_pct": 4.0602442e-14,
+      "cal_post_sub_kt": 135.95304477,
+      "rel_err_post_sub_pct": -2.89068231,
+      "h_cal": 44.76135441,
+      "gamma_cal": 3.90798692e-11,
+      "ks_cal": 4.61487928,
+      "erepro_cal": 0.00048149,
+      "R_max_cal": 3059616256.8030534,
+      "r_refuge_cal": 0,
+      "repro_level_cal": 0.88,
+      "_row": "Sculpin"
+    },
+    {
+      "species": "Plaice",
+      "target_cutoff_kt": 260,
+      "cutoff_g": 20,
+      "uncal_cutoff_kt": 0.15261655,
+      "cal_pre_sub_kt": 260,
+      "rel_err_pre_sub_pct": -6.55885602e-14,
+      "cal_post_sub_kt": 257.12996045,
+      "rel_err_post_sub_pct": -1.10386136,
+      "h_cal": 38.32991674,
+      "gamma_cal": 2.84513581e-11,
+      "ks_cal": 3.86850686,
+      "erepro_cal": 0.00007361,
+      "R_max_cal": 641226216.84327459,
+      "r_refuge_cal": 0,
+      "repro_level_cal": 0.88,
+      "_row": "Plaice"
+    },
+    {
+      "species": "Cod",
+      "target_cutoff_kt": 680,
+      "cutoff_g": 50,
+      "uncal_cutoff_kt": 0.12755866,
+      "cal_pre_sub_kt": 680,
+      "rel_err_pre_sub_pct": -1.33749221e-13,
+      "cal_post_sub_kt": 687.19386231,
+      "rel_err_post_sub_pct": 1.05792093,
+      "h_cal": 66.73229524,
+      "gamma_cal": 5.8670575e-11,
+      "ks_cal": 6.39543385,
+      "erepro_cal": 2.12383425e-06,
+      "R_max_cal": 743433679.50086021,
+      "r_refuge_cal": 2289775.73286265,
+      "repro_level_cal": 0.28308,
+      "_row": "Cod"
+    }
+  ],
+  "steady_state_convergence": [
+    {
+      "state": "High_Branch_Ecod_0.15",
+      "converged": true,
+      "termination": "residual_tolerance",
+      "attractor": "fixed_point",
+      "years_run": 57,
+      "residual_conv": 9.76129133e-09,
+      "residual_biomass": 5.92719976e-09,
+      "residual_pc_main": 1.30241767e-06,
+      "residual_pc_all": 1.30241767e-06,
+      "cod_ssb_kt": 776.29172751,
+      "cod_cutoff_kt": 824.82030479,
+      "cod_total_kt": 826.01598025
+    },
+    {
+      "state": "High_Branch_Ecod_0.00",
+      "converged": true,
+      "termination": "residual_tolerance",
+      "attractor": "fixed_point",
+      "years_run": 99,
+      "residual_conv": 5.99550563e-09,
+      "residual_biomass": 1.49111087e-09,
+      "residual_pc_main": 0.2,
+      "residual_pc_all": 0.2,
+      "cod_ssb_kt": 1018.16896261,
+      "cod_cutoff_kt": 1062.97035248,
+      "cod_total_kt": 1063.97791995
+    },
+    {
+      "state": "Low_Branch_Ecod_0.00",
+      "converged": true,
+      "termination": "residual_tolerance",
+      "attractor": "fixed_point",
+      "years_run": 1507.5,
+      "residual_conv": 9.89768757e-09,
+      "residual_biomass": 2.2799372e-09,
+      "residual_pc_main": 8.59170255e-07,
+      "residual_pc_all": 8.59170255e-07,
+      "cod_ssb_kt": 15.75808536,
+      "cod_cutoff_kt": 15.94428733,
+      "cod_total_kt": 15.9553053
+    },
+    {
+      "state": "Low_Branch_Ecod_0.15",
+      "converged": true,
+      "termination": "residual_tolerance",
+      "attractor": "fixed_point",
+      "years_run": 145.5,
+      "residual_conv": 9.02290225e-09,
+      "residual_biomass": 1.80911476e-09,
+      "residual_pc_main": 3.30071761e-07,
+      "residual_pc_all": 3.30071761e-07,
+      "cod_ssb_kt": 1.29457385,
+      "cod_cutoff_kt": 1.3302434,
+      "cod_total_kt": 1.33241176
+    }
+  ]
+}

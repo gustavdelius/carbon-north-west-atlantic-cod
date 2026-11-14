@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cultivation &amp; Depensation in a Six-Species Size-Spectrum Model | Educational Explorer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="top-nav" aria-label="Primary navigation">
+    <div class="top-nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-badge">Theoretical Explorer</span>
+        <span>Six-Species Size-Spectrum Cultivation–Depensation Model</span>
+      </a>
+      <div class="nav-links">
+        <a href="#paradox">Mechanism Overview</a>
+        <a href="#simulator">Scenario Grid Explorer</a>
+        <a href="#mechanism">Reference Equilibria</a>
+        <a href="#hysteresis">Hysteresis Scans</a>
+        <a href="#roadmap">Matched Policy Table</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Educational Companion &middot; Synthetic Boreal-Shelf Parameterization &middot; Relative Simulation Time</span>
+      <h1>Cultivation and Depensation in a Six-Species Size-Spectrum Model with External Cod Recruitment</h1>
+      <p class="hero-lead">
+        Under an illustrative six-species parameterization (<em>Capelin, Herring, Mackerel, Sculpin, Plaice, Cod</em>)
+        with strong early-life predation overlap and buffered prey recruitment, numerical analyses in <code>mizer</code>
+        exhibit coexisting high- and low-cod steady states at zero directed cod fishing (<em>E</em><sub>cod</sub> = 0).
+        This educational tool displays <strong>exact precomputed trajectories</strong> (no cross-basin interpolation)
+        with directly verified long-term asymptotic outcomes.
+      </p>
+      <div class="hero-metrics">
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-high-low">1018 vs 15.8 kt</div>
+          <div class="hero-stat-label">Coexisting zero-cod-fishing steady-state Cod SSB (identical parameters)</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-forage-surge">7.4&times;</div>
+          <div class="hero-stat-label">Expansion in forage &amp; sculpin cutoff biomass in the depensatory state</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-survival-drop">14.0&times;</div>
+          <div class="hero-stat-label">Drop in stationary cohort survival from 1 mg to 15 g (83.1% to 6.0%)</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value" id="hero-bycatch-limit">&lt; 0.01 /yr</div>
+          <div class="hero-stat-label">Phase-I cod bycatch limit on the fixed 20-yr joint harvest pulse</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Section 1: Theoretical Mechanism & Empirical Scope Distinction -->
+    <section id="paradox" class="section">
+      <div class="section-header">
+        <div class="section-kicker">1. Theoretical Mechanism &amp; Empirical Scope</div>
+        <h2>Ontogenetic Role Reversal in a Synthetic Boreal-Shelf Food Web</h2>
+        <p>
+          This model investigates a conditional ecological mechanism—not an empirical reconstruction of Northwest
+          Atlantic stock history or operational management advice. All simulation axes use relative simulation time
+          (&tau; = 0 marks the end of a 34-year directed-cod closure following a 27-year overfishing ramp).
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="section-kicker">Upper Attractor (E<sub>cod</sub> = 0)</div>
+          <h3 style="margin-top:0.2rem;">Cultivated High-Cod State</h3>
+          <p style="color:var(--text-secondary);font-size:0.93rem;">
+            Abundant adult cod (1018.2 kt SSB; baseline non-cod fleets active) crop planktivorous pelagics and benthic
+            sculpins, keeping cumulative early-life hazard <em>H</em>(15 g) = &int;(&mu;/<em>g</em>) d<em>w</em> at 0.19
+            (83.1% survival to 15 g; net reproductive ratio <em>R</em><sub>0</sub> = 1.21).
+          </p>
+        </div>
+        <div class="card">
+          <div class="section-kicker" style="color:var(--accent-danger);">Lower Attractor (E<sub>cod</sub> = 0)</div>
+          <h3 style="margin-top:0.2rem;">Depensatory Forage-Dominated State</h3>
+          <p style="color:var(--text-secondary);font-size:0.93rem;">
+            After prolonged cod depletion, released mackerel, herring, and sculpin inflate early-life cod hazard to
+            <em>H</em>(15 g) = 2.82 (88.7% direct predation, 0.9% slower growth alone, 10.4% predation &times; growth
+            synergy), cutting <em>R</em><sub>0</sub> to 0.88 despite elevated adult cod feeding.
+          </p>
+        </div>
+        <div class="card">
+          <div class="section-kicker" style="color:var(--accent-amber);">Empirical Context &amp; Structural Limits</div>
+          <h3 style="margin-top:0.2rem;">Where the Mechanism Holds—and Fails</h3>
+          <p style="color:var(--text-secondary);font-size:0.93rem;">
+            Bistability disappears under weaker larval overlap (<em>s</em><sub>&theta;</sub> &le; 0.75 at
+            <em>r</em><sub>prey</sub> &ge; 0.70, and for all tested <em>r</em><sub>prey</sub> at <em>s</em><sub>&theta;</sub> &le; 0.50),
+            symmetric fish-larval overlap, wider feeding kernels (1.15&times;&sigma;), stronger cod compensation (<em>r</em><sub>Cod</sub> = 0.55),
+            fast resource turnover (<em>r<sub>pp</sub></em> = 20), or exogenous cod recruitment &ge; 1.5%. Real Northwest Atlantic stocks
+            differ sharply (e.g. NAFO 2J3KL Northern cod rebuilt to ~524 kt by 2025 alongside depleted capelin).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Exact Grid-Snapped Scenario Explorer -->
+    <section id="simulator" class="section">
+      <div class="section-header">
+        <div class="section-kicker">2. Precomputed Scenario Grid (TR-BDF2, dt = 0.05 yr)</div>
+        <h2>Explore Exact Simulated Trajectories &amp; Verified Asymptotic Fates</h2>
+        <p>
+          Sliders step directly across the 210 precomputed 4-gear grid nodes (420 runs with tapering toggle)—<strong>no
+          linear interpolation across basin boundaries is performed</strong>. Regime classification reflects the
+          directly simulated &tau; = 340 yr asymptotic state under constant post-switch fleet efforts, rather than any
+          scalar Cod-SSB cutoff.
+        </p>
+      </div>
+
+      <div class="simulator-layout">
+        <aside class="controls-panel" aria-label="Simulation controls">
+          <div style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);margin-bottom:0.5rem;">
+            Scenario Presets
+          </div>
+          <div class="preset-group" id="preset-buttons">
+            <button type="button" class="preset-btn active" data-preset="status_quo">
+              <span>1. Status-Quo Closure</span>
+              <span class="preset-tag">Lower Basin</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="pelagic_rebalance">
+              <span>2. Pelagic Harvest (Sustained)</span>
+              <span class="preset-tag">Upper Basin</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="ecosystem_pulse">
+              <span>3. 20-Yr Joint Pulse + Taper</span>
+              <span class="preset-tag">Upper Basin</span>
+            </button>
+            <button type="button" class="preset-btn" data-preset="premature_reopen">
+              <span>4. Unassisted Cod Reopening</span>
+              <span class="preset-tag">Lower Basin</span>
+            </button>
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="slider-fp">Phase-I Pelagic Effort (<em>E</em><sub>pel</sub>)</label>
+              <span class="control-val" id="val-fp">0.15 /yr</span>
+            </div>
+            <p class="control-help">Discrete grid values: 0.00, 0.15 (baseline), 0.35, 0.50, 0.55, 0.65, 0.80 /yr. Note: Capelin catchability <em>Q</em> = 0.75; Herring/Mackerel <em>Q</em> = 1.00.</p>
+            <input type="range" id="slider-fp" min="0" max="6" step="1" value="1" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="slider-fm">Phase-I Sculpin Effort (<em>E</em><sub>meso</sub>)</label>
+              <span class="control-val" id="val-fm">0.05 /yr</span>
+            </div>
+            <p class="control-help">Discrete grid values: 0.00, 0.05 (baseline), 0.20, 0.35, 0.45, 0.60 /yr (<em>Q</em> = 1.00).</p>
+            <input type="range" id="slider-fm" min="0" max="5" step="1" value="1" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="slider-fcod">Phase-II Cod Effort (<em>E</em><sub>cod</sub>, &tau; &ge; 20 yr)</label>
+              <span class="control-val" id="val-fcod">0.00 /yr</span>
+            </div>
+            <p class="control-help">Discrete grid values: 0.00, 0.10, 0.15 (baseline), 0.25, 0.40 /yr applied at &tau; = 20 yr (Phase-I <em>E</em><sub>cod</sub> = 0).</p>
+            <input type="range" id="slider-fcod" min="0" max="4" step="1" value="0" />
+          </div>
+
+          <div class="control-group">
+            <div class="control-label-row">
+              <label class="control-label" for="check-taper">Fixed-Schedule Taper at &tau; = 20 yr</label>
+              <span class="control-val" id="val-pulse">Off</span>
+            </div>
+            <p class="control-help">Return <em>E</em><sub>pel</sub> &rarr; 0.15 and <em>E</em><sub>meso</sub> &rarr; 0.05 at &tau; = 20 yr (fixed schedule, not an observation-driven feedback rule).</p>
+            <input type="checkbox" id="check-taper" style="transform:scale(1.2);margin-right:0.4rem;cursor:pointer;" />
+            <label for="check-taper" style="font-size:0.84rem;color:var(--text-secondary);cursor:pointer;">
+              Taper pelagic &amp; sculpin effort to baseline at &tau; = 20 yr
+            </label>
+          </div>
+        </aside>
+
+        <div>
+          <div id="regime-status-banner" class="regime-banner trapped">
+            <span id="regime-status-text">Verified Asymptotic Outcome: Lower Depensatory Basin</span>
+            <span id="regime-threshold-note" style="font-size:0.84rem;font-weight:500;">Evaluated by projecting the post-policy full ecosystem state to &tau; = 340 yr</span>
+          </div>
+
+          <div class="kpi-row">
+            <div class="kpi-box">
+              <div class="kpi-title">Cod SSB at &tau; = 40 yr</div>
+              <div class="kpi-num" id="kpi-cod-ssb">— kt</div>
+              <div class="kpi-sub" id="kpi-cod-asymp">Asymptotic (&tau;=340): — kt</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-title">Forage Cutoff Biomass</div>
+              <div class="kpi-num" id="kpi-forage-bio">— kt</div>
+              <div class="kpi-sub" id="kpi-min-capelin">Min Capelin (0–40 yr): — kt</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-title">Projected Yield (&tau; = 40)</div>
+              <div class="kpi-num" id="kpi-total-yield">— kt/yr</div>
+              <div class="kpi-sub" id="kpi-cum-yield">40-yr cum. catch: — kt</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-title">Nursery Predation (&tau; = 40)</div>
+              <div class="kpi-num" id="kpi-larval-m">— /yr</div>
+              <div class="kpi-sub">Unweighted mean, 0.05–5 g</div>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <div class="chart-title-bar">
+              <div class="chart-title">Cod SSB &amp; Guild Cutoff Biomass (Relative Time: &minus;61 to 0 Collapse/Closure; 0 to +40 Intervention)</div>
+              <div class="legend-inline">
+                <span class="legend-item"><span class="legend-swatch" style="background:#1d5fa7;"></span>Cod SSB</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#d97706;"></span>Forage Cutoff Biomass</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#7c3aed;"></span>Sculpin Cutoff Biomass</span>
+              </div>
+            </div>
+            <canvas id="canvas-timeseries" width="780" height="310"></canvas>
+          </div>
+
+          <div class="chart-wrap" style="margin-bottom:0;">
+            <div class="chart-title-bar">
+              <div class="chart-title">Projected Annual Fishery Yield Rate by Guild (kt / year)</div>
+              <div class="legend-inline">
+                <span class="legend-item"><span class="legend-swatch" style="background:#1d5fa7;"></span>Cod Yield</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#d97706;"></span>Pelagic Yield</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#15805c;"></span>Sculpin + Plaice Yield</span>
+              </div>
+            </div>
+            <canvas id="canvas-yield" width="780" height="205"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Static Equilibrium Reference Comparison -->
+    <section id="mechanism" class="section">
+      <div class="section-header">
+        <div class="section-kicker">3. Static Reference Equilibrium Diagnostics (E<sub>cod</sub> = 0)</div>
+        <h2>Comparing the Two Coexisting Zero-Cod-Fishing Steady States Across Body Size</h2>
+        <p>
+          <strong>Note:</strong> The panels below display a <em>fixed reference comparison</em> of the two refined
+          <em>E</em><sub>cod</sub> = 0 equilibrium objects (<code>cod_high_f0_params.rds</code> vs.
+          <code>cod_low_f0_params.rds</code>; baseline pelagic, sculpin, and flatfish fishing active). They are static
+          steady-state diagnostics and do not change when the policy sliders above are moved.
+        </p>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;">
+          <div class="pill-tabs" role="tablist" aria-label="Ecosystem state comparison">
+            <button type="button" class="pill-tab active" data-spectrum-view="spectra">Biomass Size Spectra</button>
+            <button type="button" class="pill-tab" data-spectrum-view="mortality">Cod Predation Mortality vs. Size</button>
+            <button type="button" class="pill-tab" data-spectrum-view="feeding">Cod Feeding Level f(w)</button>
+          </div>
+          <div class="pill-tabs" role="tablist" aria-label="Regime overlay">
+            <button type="button" class="pill-tab active" data-regime-compare="moratorium">Depensatory Low-Cod (E<sub>cod</sub>=0)</button>
+            <button type="button" class="pill-tab" data-regime-compare="cultivated">Cultivated High-Cod (E<sub>cod</sub>=0)</button>
+            <button type="button" class="pill-tab" data-regime-compare="both">Overlay Both Equilibria</button>
+          </div>
+        </div>
+
+        <canvas id="canvas-spectra" width="1100" height="340"></canvas>
+        <p id="spectra-caption" style="margin:0.75rem 0 0;font-size:0.88rem;color:var(--text-secondary);">
+          Loading static steady-state diagnostics…
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Hysteresis Continuation Scans -->
+    <section id="hysteresis" class="section">
+      <div class="section-header">
+        <div class="section-kicker">4. Hysteresis &amp; Settled Transition Brackets</div>
+        <h2>Equilibrium Continuation Scans Across Cod and Pelagic Effort</h2>
+        <p>
+          Local linearization over all 727 active consumer + resource coordinates confirms negative leading real parts
+          at both coexisting <em>E</em><sub>cod</sub> = 0 equilibria, separated by an unstable saddle fixed point
+          (42.1 kt Cod SSB along the saddle manifold; note that equal-SSB states with different prey spectra have
+          opposite fates). Shaded bands show refined 0.005 /yr settled transition intervals.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="chart-title" style="margin-bottom:0.4rem;">A. Hysteresis vs. Directed Cod Effort (<em>E</em><sub>cod</sub>)</div>
+          <p style="font-size:0.84rem;color:var(--text-secondary);margin-top:0;">
+            Forward continuation from the cultivated equilibrium transitions between 0.240 and 0.245 /yr as the leading
+            real eigenvalue approaches zero; backward continuation remains on the lower branch down to <em>E</em><sub>cod</sub> = 0.
+          </p>
+          <canvas id="canvas-hysteresis-cod" width="520" height="290"></canvas>
+        </div>
+
+        <div class="card">
+          <div class="chart-title" style="margin-bottom:0.4rem;">B. Escape Hysteresis vs. Pelagic Effort (<em>E</em><sub>pel</sub> at <em>E</em><sub>cod</sub> = 0)</div>
+          <p style="font-size:0.84rem;color:var(--text-secondary);margin-top:0;">
+            Settled continuation from the low-cod state escapes between 0.150 and 0.155 /yr over multi-century horizons,
+            whereas escaping within a 20–40 yr management window requires much stronger predator thinning.
+          </p>
+          <canvas id="canvas-hysteresis-forage" width="520" height="290"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Matched 6-Gear Policy Comparison & Trade-Offs -->
+    <section id="roadmap" class="section" style="margin-bottom:1rem;">
+      <div class="section-header">
+        <div class="section-kicker">5. Matched 6-Gear Policy Experiments &amp; Multi-Objective Trade-Offs</div>
+        <h2>Separating Tapering, Capelin Sparing, Bycatch Fragility, and Aggregate Yield</h2>
+        <p>
+          In our 6-gear extension (separating <code>Capelin_Gear</code> from <code>Clupeid_Mackerel</code> and adding
+          <code>Cod_Bycatch</code>), rebuilding cod reduces equilibrium aggregate tonnage relative to harvesting
+          hyperabundant forage stocks, while capelin-sparing (keeping <em>E</em><sub>cap</sub> = 0.15) accelerates cod
+          recovery because herring, mackerel, and sculpin—not capelin—dominate early-life cod hazard.
+        </p>
+      </div>
+
+      <div class="card" style="margin-bottom:1.5rem;overflow-x:auto;">
+        <table class="policy-table">
+          <thead>
+            <tr>
+              <th>Matched 6-Gear Strategy</th>
+              <th>Phase-I <em>E</em><sub>cap</sub> / <em>E</em><sub>hm</sub> / <em>E</em><sub>meso</sub></th>
+              <th>Phase-II <em>E</em><sub>cod</sub></th>
+              <th>Tapered?</th>
+              <th>&tau;=40 / Asymp. Cod SSB</th>
+              <th>40-Yr Cum. / &tau;=40 Yield</th>
+              <th>Min Phase-I Capelin</th>
+              <th>Verified Basin</th>
+            </tr>
+          </thead>
+          <tbody id="policy-comparison-tbody">
+            <!-- Populated dynamically from exact 6-gear mizer outputs -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <strong>Scope &amp; Interpretation Caveats:</strong>
+        (1) All results above come from a deterministic, spatially homogeneous size-spectrum model calibrated to
+        synthetic reference biomasses without economic price/cost data.
+        (2) On the fixed 20-year joint pulse, incidental Phase-I juvenile or adult cod fishing effort &ge; 0.010 /yr
+        causes asymptotic reversion to the low-cod state (despite a deceptive transient SSB peak at &tau; = 40 yr),
+        whereas a state-dependent feedback harvest control rule (&ge; 280 kt observed SSB for 2 consecutive years)
+        restores robustness under 25% lognormal observation error.
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <div>
+        <strong>Six-Species Size-Spectrum Cultivation–Depensation Explorer</strong><br />
+        Generated programmatically in R (<code>mizer 3.4.0.9003</code>, <code>method = "tr_bdf2"</code>,
+        <code>dt = 0.05</code>) by <code>R/03_generate_figures_and_web_data.R</code>.
+      </div>
+      <div>
+        Companion theoretical paper: <em>Cultivation and depensation in a six-species size-spectrum model with external
+        cod recruitment</em> (Gustav Delius, University of York).
+      </div>
+    </div>
+  </footer>
+
+  <script src="model_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
